@@ -56,7 +56,7 @@ index 0000000..dda5c8e
 @@ -0,0 +1,1941 @@
 +/* GdkPixbuf RGB C-Source image dump 1-byte-run-length-encoded */
 +
-+#define _IMG_ROWSTRIDE (5120)
++#define _IMG_ROWSTRIDE (3840)
 +#define _IMG_WIDTH (1280)
 +#define _IMG_HEIGHT (720)
 +#define _IMG_BYTES_PER_PIXEL (4) /* 3:RGB, 4:RGBA */
