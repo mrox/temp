@@ -1,66 +1,22 @@
-From ab089c68cde160119febe5818f9027690d3eb18d Mon Sep 17 00:00:00 2001
-From: Zoltan Gyarmati <mr.zoltan.gyarmati@gmail.com>
-Date: Fri, 13 Jan 2017 17:28:40 +0100
-Subject: [PATCH] add Toldo splash image
+commit 2f2c55cb27df981c5c569c3d1991e0f8c5121628
+Author: tuyentran <tuyen.appdev@gmail.com>
+Date:   Fri Jul 21 09:52:40 2023 +0700
 
----
- psplash.c          |   17 +-
- toldo-splash-img.h | 1941 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 1950 insertions(+), 8 deletions(-)
- create mode 100644 toldo-splash-img.h
+    [PATCH] add jmt splash image
 
-diff --git a/psplash.c b/psplash.c
-index 22af68d..54e7ab4 100644
---- a/psplash.c
-+++ b/psplash.c
-@@ -23,6 +23,7 @@
- #include "psplash-colors.h"
- #include "psplash-poky-img.h"
- #include "psplash-bar-img.h"
-+#include "toldo-splash-img.h"
- #include "radeon-font.h"
- 
- #define SPLIT_LINE_POS(fb)                                  \
-@@ -276,18 +277,18 @@ main (int argc, char** argv)
- 
-   /* Draw the Poky logo  */
-   psplash_fb_draw_image (fb, 
--			 (fb->width  - POKY_IMG_WIDTH)/2, 
-+			 (fb->width  - _IMG_WIDTH)/2, 
- #if PSPLASH_IMG_FULLSCREEN
--			 (fb->height - POKY_IMG_HEIGHT)/2,
-+			 (fb->height - _IMG_HEIGHT)/2,
- #else
- 			 (fb->height * PSPLASH_IMG_SPLIT_NUMERATOR
--			  / PSPLASH_IMG_SPLIT_DENOMINATOR - POKY_IMG_HEIGHT)/2,
-+			  / PSPLASH_IMG_SPLIT_DENOMINATOR - _IMG_HEIGHT)/2,
- #endif
--			 POKY_IMG_WIDTH,
--			 POKY_IMG_HEIGHT,
--			 POKY_IMG_BYTES_PER_PIXEL,
--			 POKY_IMG_ROWSTRIDE,
--			 POKY_IMG_RLE_PIXEL_DATA);
-+			 _IMG_WIDTH,
-+			 _IMG_HEIGHT,
-+			 _IMG_BYTES_PER_PIXEL,
-+			 _IMG_ROWSTRIDE,
-+			 _IMG_RLE_PIXEL_DATA);
- 
-   /* Draw progress bar border */
-   psplash_fb_draw_image (fb, 
-diff --git a/toldo-splash-img.h b/toldo-splash-img.h
+diff --git a/psplash-jmt-img.h b/psplash-jmt-img.h
 new file mode 100644
-index 0000000..dda5c8e
+index 0000000..41bc87e
 --- /dev/null
-+++ b/toldo-splash-img.h
-@@ -0,0 +1,1941 @@
++++ b/psplash-jmt-img.h
+@@ -0,0 +1,4063 @@
 +/* GdkPixbuf RGB C-Source image dump 1-byte-run-length-encoded */
 +
-+#define _IMG_ROWSTRIDE (3840)
-+#define _IMG_WIDTH (1280)
-+#define _IMG_HEIGHT (720)
-+#define _IMG_BYTES_PER_PIXEL (4) /* 3:RGB, 4:RGBA */
-+#define _IMG_RLE_PIXEL_DATA ((uint8*) \
++#define POKY_IMG_ROWSTRIDE (3840)
++#define POKY_IMG_WIDTH (1280)
++#define POKY_IMG_HEIGHT (720)
++#define POKY_IMG_BYTES_PER_PIXEL (3) /* 3:RGB, 4:RGBA */
++#define POKY_IMG_RLE_PIXEL_DATA ((uint8*) \
 +  "\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377" \
 +  "\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377" \
 +  "\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377\377" \
@@ -4117,6 +4073,16 @@ index 0000000..dda5c8e
 +  "\377\376\377\377\377")
 +
 +
--- 
-2.7.4
-
+diff --git a/psplash.c b/psplash.c
+index 22af68d..668d241 100644
+--- a/psplash.c
++++ b/psplash.c
+@@ -21,7 +21,7 @@
+ #include "psplash.h"
+ #include "psplash-config.h"
+ #include "psplash-colors.h"
+-#include "psplash-poky-img.h"
++#include "psplash-jmt-img.h"
+ #include "psplash-bar-img.h"
+ #include "radeon-font.h"
+ 
